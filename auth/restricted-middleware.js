@@ -9,7 +9,7 @@ module.exports = (req, res, next) => {
         Users.findBy({ username })
             .first()
             .then(user => {
-                if (user && bcrypt.compareSync(passwrod, user.password)) {
+                if (user && bcrypt.compareSync(password, user.password)) {
                     next();
                 } else {
                     res.status(401).json({ message: "Invalid Credentials" });
