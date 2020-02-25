@@ -3,7 +3,7 @@ const router = require("express").Router()
 
 const authRouter = require("../auth/auth-router");
 usersRouter = require("../users/users-router");
-const restricted = require("../auth/restricted");
+const restricted = require("../auth/restricted-middleware");
 
 router.use("/auth", authRouter);
 router.use("/users", restricted, usersRouter);
