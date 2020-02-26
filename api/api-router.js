@@ -2,11 +2,11 @@ const bcrypt = require("bcryptjs");
 const router = require("express").Router()
 
 const authRouter = require("../auth/auth-router");
-usersRouter = require("../users/users-router");
-const restricted = require("../auth/restricted");
+const usersRouter = require("../users/users-router");
+const restricted = require("../auth/restricted-middleware");
 
-router.use("/auth", authRouter);
-router.use("/users", restricted, usersRouter);
+router.use("/api/auth", authRouter);
+router.use("/api/users", restricted, usersRouter);
 
 router.get("/hash", (req, res) => {
     const authentication = req.headers.authentication;
